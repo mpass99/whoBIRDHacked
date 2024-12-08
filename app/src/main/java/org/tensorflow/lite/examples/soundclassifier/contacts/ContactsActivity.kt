@@ -1,4 +1,4 @@
-package org.tensorflow.lite.examples.soundclassifier.Contacts
+package org.tensorflow.lite.examples.soundclassifier.contacts
 
 import android.os.Bundle
 import android.widget.Button
