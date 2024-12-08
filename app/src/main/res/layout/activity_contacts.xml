@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/text_disclaimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Would you like to share your discoveries with others? Connect with your family, friends or colleagues and share your joy!"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:paddingBottom="24dp"/>
+
+    <Button
+        android:id="@+id/button_accept"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Yes, connect me!"/>
+
+    <Button
+        android:id="@+id/button_decline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not yet."
+        android:layout_marginTop="16dp"/>
+</LinearLayout>
