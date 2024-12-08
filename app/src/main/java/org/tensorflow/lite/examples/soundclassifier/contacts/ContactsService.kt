@@ -8,6 +8,17 @@ import android.util.Log
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import kotlinx.serialization.encodeToString
+import kotlinx.serialization.json.Json
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.Response
+import java.io.IOException
+
 
 class ContactsService(val context: Activity) {
 
@@ -182,8 +193,52 @@ class ContactsService(val context: Activity) {
     }
 
     private fun compareContacts(contacts: List<Map<String, String>>) {
-        Toast.makeText(context, "Oops! Could not connect to our servers. Try again later.", Toast.LENGTH_SHORT).show()
         Log.d("Contacts", contacts.toString())
-        // send to server
+        // send to server, receive known users
+        sendContacts(contacts)
+    }
+
+    private fun sendContacts(contacts: List<Map<String, String>>) {
+        val url = "ws://10.0.2.2:8080/ws"
+
+        val json = Json { prettyPrint = true }
+        val jsonBody = json.encodeToString(contacts)
+
+        val requestBody = jsonBody
+            .toRequestBody("application/json; charset=utf-8".toMediaTypeOrNull())
+
+        // Build the request
+        val request = Request.Builder()
+            .url(url)
+            .post(requestBody)
+            .build()
+
+        // Make the network call
+        OkHttpClient().newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                context.runOnUiThread {
+                    Toast.makeText(context, "Oops! Something went wrong. \n ${e.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                context.runOnUiThread {
+                    if (response.isSuccessful) {
+                        Log.d("Contacts", "Success: ${response.body?.string()}")
+                    } else {
+                        Log.d("Contacts", "Error: ${response.code}: ${response.message}")
+                        if (response.message.isNotBlank())
+                            Toast.makeText(context, response.message, Toast.LENGTH_LONG).show()
+                        else
+                            Toast.makeText(
+                                context,
+                                "Oops! Could not connect to our servers. Try again later.",
+                                Toast.LENGTH_LONG
+                            ).show()
+                    }
+                    context.finish()
+                }
+            }
+        })
     }
 }

@@ -35,6 +35,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
+import org.tensorflow.lite.examples.soundclassifier.contacts.ContactsActivity
 import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -90,6 +91,10 @@ class MainActivity : AppCompatActivity() {
         }
         R.id.action_settings -> {
           intent = Intent(this, SettingsActivity::class.java)
+          startActivity(intent)
+        }
+        R.id.action_contacts -> {
+          intent = Intent(this, ContactsActivity::class.java)
           startActivity(intent)
         }
       }
