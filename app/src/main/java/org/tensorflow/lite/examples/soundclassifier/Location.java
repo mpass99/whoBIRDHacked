@@ -20,13 +20,14 @@ public class Location {
         locationListenerGPS=null;
     }
 
-    static void requestLocation(Context context, SoundClassifier soundClassifier) {
+    static void requestLocation(Context context, SoundClassifier soundClassifier, WebSocketClient webSocketClient) {
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED && checkLocationProvider(context)) {
             LocationManager locationManager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             if (locationListenerGPS==null) locationListenerGPS = new LocationListener() {
                 @Override
                 public void onLocationChanged(android.location.Location location) {
                     soundClassifier.runMetaInterpreter(location);
+                    webSocketClient.sendLocation(location);
                 }
 
                 @Deprecated
