@@ -92,6 +92,10 @@ class MainActivity : AppCompatActivity() {
           intent = Intent(this, SettingsActivity::class.java)
           startActivity(intent)
         }
+        R.id.action_contacts -> {
+          intent = Intent(this, ContactsActivity::class.java)
+          startActivity(intent)
+        }
       }
       true
     }

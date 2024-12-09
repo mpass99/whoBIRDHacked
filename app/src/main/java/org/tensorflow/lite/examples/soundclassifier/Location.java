@@ -27,7 +27,7 @@ public class Location {
                 @Override
                 public void onLocationChanged(android.location.Location location) {
                     soundClassifier.runMetaInterpreter(location);
-                    webSocketClient.sendLocation(location);
+                    webSocketClient.sendLocation();
                 }
 
                 @Deprecated
