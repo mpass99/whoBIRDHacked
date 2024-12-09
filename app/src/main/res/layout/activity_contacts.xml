@@ -1,30 +1,62 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_blue_gray700"
+    tools:context=".contacts.ContactsActivity">
 
-    <TextView
-        android:id="@+id/text_disclaimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Would you like to share your discoveries with others? Connect with your family, friends or colleagues and share your joy!"
-        android:textSize="18sp"
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:gravity="center"
-        android:paddingBottom="24dp"/>
+        android:padding="16dp">
 
-    <Button
-        android:id="@+id/button_accept"
+        <TextView
+            android:id="@+id/text_disclaimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Would you like to share your discoveries with others? Connect with your family, friends or colleagues and share your joy!"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingBottom="24dp"/>
+
+        <Button
+            android:id="@+id/button_accept"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Yes, connect me!"/>
+
+        <Button
+            android:id="@+id/button_decline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not yet."
+            android:layout_marginTop="16dp"/>
+    </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Yes, connect me!"/>
+        android:layout_gravity="bottom"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="10dp"
+        app:fabCradleVerticalOffset="5dp"
+        app:fabAlignmentMode="center">
 
-    <Button
-        android:id="@+id/button_decline"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Not yet."
-        android:layout_marginTop="16dp"/>
-</LinearLayout>
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            app:itemIconTint="@color/orange500"
+            app:itemTextColor="@color/orange500"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottom_bar"
+            android:background="@drawable/background_transparent" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

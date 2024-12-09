@@ -16,6 +16,8 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import org.tensorflow.lite.examples.soundclassifier.contacts.ContactsActivity;
+
 public class SettingsActivity extends AppCompatActivity {
 Context mContext;
 
@@ -41,6 +43,9 @@ Context mContext;
                     startActivity(intent);
                 } else if (item.getItemId()==R.id.action_view){
                     Intent intent = new Intent(mContext, ViewActivity.class);
+                    startActivity(intent);
+                } else if (item.getItemId() == R.id.action_contacts) {
+                    Intent intent = new Intent(mContext, ContactsActivity.class);
                     startActivity(intent);
                 }
                 return true;

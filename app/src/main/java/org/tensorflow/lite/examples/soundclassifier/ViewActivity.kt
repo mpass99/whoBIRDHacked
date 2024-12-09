@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.lingala.zip4j.ZipFile
+import org.tensorflow.lite.examples.soundclassifier.contacts.ContactsActivity
 import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityViewBinding
 import java.io.BufferedReader
 import java.io.File
@@ -98,6 +99,10 @@ class ViewActivity : AppCompatActivity() {
                 }
                 R.id.action_about -> {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/whobird")))
+                }
+                R.id.action_contacts -> {
+                    intent = Intent(this, ContactsActivity::class.java)
+                    startActivity(intent)
                 }
                 R.id.action_settings -> {
                     intent = Intent(this, SettingsActivity::class.java)
