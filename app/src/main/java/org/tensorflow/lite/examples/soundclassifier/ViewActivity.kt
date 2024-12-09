@@ -22,7 +22,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.preference.PreferenceManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import net.lingala.zip4j.ZipFile
-import org.tensorflow.lite.examples.soundclassifier.contacts.ContactsActivity
 import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityViewBinding
 import java.io.BufferedReader
 import java.io.File

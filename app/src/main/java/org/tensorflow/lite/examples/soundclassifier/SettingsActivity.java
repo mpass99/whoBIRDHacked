@@ -16,8 +16,6 @@ import androidx.preference.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import org.tensorflow.lite.examples.soundclassifier.contacts.ContactsActivity;
-
 public class SettingsActivity extends AppCompatActivity {
 Context mContext;
 

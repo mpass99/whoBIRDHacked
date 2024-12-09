@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/dark_blue_gray700"
-    tools:context=".contacts.ContactsActivity">
+    tools:context=".ContactsActivity">
 
     <LinearLayout
         android:id="@+id/layout_request_contact_access"

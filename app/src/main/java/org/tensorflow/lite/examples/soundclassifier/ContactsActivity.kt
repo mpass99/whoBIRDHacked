@@ -1,21 +1,13 @@
-package org.tensorflow.lite.examples.soundclassifier.contacts
+package org.tensorflow.lite.examples.soundclassifier
 
-import android.content.ContentResolver
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.database.Cursor
 import android.net.Uri
 import android.os.Bundle
 import android.provider.ContactsContract
 import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import org.tensorflow.lite.examples.soundclassifier.MainActivity
-import org.tensorflow.lite.examples.soundclassifier.R
-import org.tensorflow.lite.examples.soundclassifier.SettingsActivity
-import org.tensorflow.lite.examples.soundclassifier.ViewActivity
-import org.tensorflow.lite.examples.soundclassifier.WebSocketClient
 import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityContactsBinding
 import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityMainBinding
 
