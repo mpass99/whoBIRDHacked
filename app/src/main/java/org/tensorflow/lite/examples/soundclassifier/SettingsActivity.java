@@ -59,8 +59,6 @@ Context mContext;
         super.onResume();
     }
 
-
-
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
