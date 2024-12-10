@@ -40,6 +40,7 @@ import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityMainBind
 class MainActivity : AppCompatActivity() {
 
   private lateinit var soundClassifier: SoundClassifier
+  private lateinit var webSocketClient: WebSocketClient
   private lateinit var binding: ActivityMainBinding
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
     paramsIcon.height = (width / 1.8f).toInt()
 
     soundClassifier = SoundClassifier(this, binding, SoundClassifier.Options())
+    webSocketClient = WebSocketClient(this, binding)
     binding.gps.setText(getString(R.string.latitude)+": --.-- / " + getString(R.string.longitude) + ": --.--" )
     binding.webview.setWebViewClient(object : MlWebViewClient(this) {})
     binding.webview.settings.setDomStorageEnabled(true)
@@ -88,6 +90,10 @@ class MainActivity : AppCompatActivity() {
         }
         R.id.action_settings -> {
           intent = Intent(this, SettingsActivity::class.java)
+          startActivity(intent)
+        }
+        R.id.action_contacts -> {
+          intent = Intent(this, ContactsActivity::class.java)
           startActivity(intent)
         }
       }
@@ -124,12 +130,11 @@ class MainActivity : AppCompatActivity() {
     if (GithubStar.shouldShowStarDialog(this)) GithubStar.starDialog(this, "https://github.com/woheller69/whoBIRD")
 
     requestPermissions()
-
   }
 
   override fun onResume() {
     super.onResume()
-    Location.requestLocation(this, soundClassifier)
+    Location.requestLocation(this, soundClassifier, webSocketClient)
     if (!checkLocationPermission()){
       Toast.makeText(this, this.resources.getString(R.string.error_location_permission), Toast.LENGTH_SHORT).show()
     }
@@ -139,12 +144,14 @@ class MainActivity : AppCompatActivity() {
       Toast.makeText(this, this.resources.getString(R.string.error_audio_permission), Toast.LENGTH_SHORT).show()
     }
     keepScreenOn(true)
+    webSocketClient.connect()
   }
 
   override fun onPause() {
     super.onPause()
     Location.stopLocation(this)
     if (soundClassifier.isRecording) soundClassifier.stop()
+    webSocketClient.disconnect()
   }
 
   private fun checkMicrophonePermission(): Boolean {

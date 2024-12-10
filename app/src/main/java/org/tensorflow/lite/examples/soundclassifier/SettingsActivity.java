@@ -42,6 +42,9 @@ Context mContext;
                 } else if (item.getItemId()==R.id.action_view){
                     Intent intent = new Intent(mContext, ViewActivity.class);
                     startActivity(intent);
+                } else if (item.getItemId() == R.id.action_contacts) {
+                    Intent intent = new Intent(mContext, ContactsActivity.class);
+                    startActivity(intent);
                 }
                 return true;
             }
@@ -53,8 +56,6 @@ Context mContext;
     protected void onResume() {
         super.onResume();
     }
-
-
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
         @Override

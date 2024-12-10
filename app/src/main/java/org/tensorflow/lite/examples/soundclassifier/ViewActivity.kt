@@ -99,6 +99,10 @@ class ViewActivity : AppCompatActivity() {
                 R.id.action_about -> {
                     startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/woheller69/whobird")))
                 }
+                R.id.action_contacts -> {
+                    intent = Intent(this, ContactsActivity::class.java)
+                    startActivity(intent)
+                }
                 R.id.action_settings -> {
                     intent = Intent(this, SettingsActivity::class.java)
                     startActivity(intent)
