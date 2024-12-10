@@ -6,7 +6,11 @@
     <color name="gray800">#424242</color>
 
     <color name="dark_blue_gray700">#344955</color>
-     <color name="orange500">#F9AA33</color>
+    <color name="orange500">#F9AA33</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 
 
 </resources>

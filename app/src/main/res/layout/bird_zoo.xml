@@ -1,0 +1,137 @@
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+style="@style/Widget.WhoBIRD.AppWidget.Container"
+android:theme="@style/AppTheme.AppWidgetContainer"
+android:id="@+id/gridLayout"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:columnCount="4">
+    <ImageButton
+        android:id="@+id/imageView1"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/bankivahuhn" />
+    <ImageButton
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/bekassine" />
+    <ImageButton
+        android:id="@+id/imageView3"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/brauntinamu" />
+    <ImageButton
+        android:id="@+id/imageView4"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/fettschwalm" />
+    <ImageButton
+        android:id="@+id/imageView5"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/graugans" />
+    <ImageButton
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/graureiher" />
+    <ImageButton
+        android:id="@+id/imageView7"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/helmkasuar" />
+    <ImageButton
+        android:id="@+id/imageView8"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/klagetagschlaefer" />
+    <ImageButton
+        android:id="@+id/imageView9"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/maeusebussard" />
+    <ImageButton
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/malaienschwalm" />
+    <ImageButton
+        android:id="@+id/imageView11"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/nachtschwalbe" />
+    <ImageButton
+        android:id="@+id/imageView12"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/nandu" />
+    <ImageButton
+        android:id="@+id/imageView13"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/nordstreifenkiwi" />
+    <ImageButton
+        android:id="@+id/imageView14"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/rostkappen_ameisenpitta" />
+    <ImageButton
+        android:id="@+id/imageView15"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/strauss" />
+    <ImageButton
+        android:id="@+id/imageView16"
+        android:layout_width="0dp"
+        android:layout_columnWeight="4"
+        android:layout_height="0dp"
+        android:layout_rowWeight="4"
+        android:scaleType="fitXY"
+        android:src="@drawable/waldkauz" />
+
+</GridLayout>
