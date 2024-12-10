@@ -55,6 +55,29 @@ This work is licensed under GPLv3, © woheller69
 - It uses Zip4j (https://github.com/srikanth-lingala/zip4j) which is licensed under Apache License Version 2.0
 - It uses iirj (https://github.com/berndporr/iirj) which is licensed under Apache License Version 2.0
 
+## Images used
+
+- Von Die Autorenschaft wurde nicht in einer maschinell lesbaren Form angegeben. Es wird Akumiszcza als Autor angenommen (basierend auf den Rechteinhaber-Angaben). - Die Autorenschaft wurde nicht in einer maschinell lesbaren Form angegeben. Es wird angenommen, dass es sich um ein eigenes Werk handelt (basierend auf den Rechteinhaber-Angaben)., CC BY 3.0, https://commons.wikimedia.org/w/index.php?curid=173006
+- Von ninara - Flickr: IMG_0259, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=30544396
+- Von Julian Londono from Manizales, Colombia - Chestnut-crowned Antpitta (Grallaria ruficapilla)Uploaded by Snowmanradio, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=14833559
+- Von Maungatautari Ecological Island Trust - http://www.maungatrust.org/news/default.asp, Gemeinfrei, https://commons.wikimedia.org/w/index.php?curid=2450957
+- Von Rufus46 - Eigenes Werk, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=36109606
+- Von JJ Harrison (https://www.jjharrison.com.au/) - Eigenes Werk, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=8979714
+- Von Björn Strey - IMG_5324X, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=26606876
+- Von Dario Sanches from São Paulo, Brazil - MÃE-DA-LUA (Nyctibius griseus )Uploaded by snowmanradio, CC BY-SA 2.0, https://commons.wikimedia.org/w/index.php?curid=17298984
+- Von Summerdrought - Eigenes Werk, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=48628990
+- Von Derek Keats from Johannesburg, South Africa - Grey Heron, Ardea cinerea, at Pilanesberg National Park, Northwest Province, South Africa, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=50428343
+- Von Andreas Trepte - Eigenes Werk, CC BY-SA 2.5, https://commons.wikimedia.org/w/index.php?curid=3992515
+- Von The Lilac Breasted Roller - flickr.com, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=3413250
+- Von TonyCastro - Eigenes Werk, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=60381623
+- Von Alpsdake - Eigenes Werk, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=19001237
+- Von Alexey Tolmachov - Eigenes Werk, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=72716388
+- Von Jason Thompson - Flickr: Red Junglefowl, CC BY 2.0, https://commons.wikimedia.org/w/index.php?curid=30900317
+
+## Sounds used
+
+Sound from the [xeno-canto Project](https://xeno-canto.org) are being used.
+
 # OTHER APPS
 
 | **RadarWeather** | **Gas Prices** | **Smart Eggtimer** |

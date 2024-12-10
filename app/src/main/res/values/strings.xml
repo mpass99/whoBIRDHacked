@@ -23,4 +23,7 @@
     <string name="source_microphone">Microphone</string>
     <string name="source_voicerecognition">Voice Recognition</string>
     <string name="settings_audiosource">Audio Source</string>
+    <string name="appwidget_text" translatable="false">EXAMPLE</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="app_widget_description" translatable="false">This is an app widget description</string>
 </resources>
