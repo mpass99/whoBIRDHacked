@@ -1,0 +1,86 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/dark_blue_gray700"
+    tools:context=".ContactsActivity">
+
+    <LinearLayout
+        android:id="@+id/layout_request_contact_access"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center"
+        android:visibility="visible">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Feeling lonely?"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:paddingBottom="24dp"/>
+        <TextView
+            android:id="@+id/text_request_permission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="whoBIRD is more fun with friends! Connect with your contacts to see who’s already using the app."
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingBottom="24dp" />
+
+        <Button
+            android:id="@+id/button_request_contact_access"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Grant Contacts Access" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_invite_friends"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:gravity="center"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/text_no_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None of your contacts are using whoBIRD yet."
+            android:textSize="18sp"
+            android:gravity="center"
+            android:paddingBottom="24dp" />
+
+        <Button
+            android:id="@+id/button_invite_friends"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Invite Friends" />
+    </LinearLayout>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="10dp"
+        app:fabCradleVerticalOffset="5dp"
+        app:fabAlignmentMode="center">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="16dp"
+            app:itemIconTint="@color/orange500"
+            app:itemTextColor="@color/orange500"
+            app:labelVisibilityMode="unlabeled"
+            app:menu="@menu/bottom_bar"
+            android:background="@drawable/background_transparent" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
