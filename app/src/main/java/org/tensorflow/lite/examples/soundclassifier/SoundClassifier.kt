@@ -444,6 +444,7 @@ class SoundClassifier(
         Log.w(TAG, "AudioRecord.ERROR")
       }
       else -> {
+        Log.d(TAG, audioBuffer.joinToString())
         return loadedSamples
       }
     }
