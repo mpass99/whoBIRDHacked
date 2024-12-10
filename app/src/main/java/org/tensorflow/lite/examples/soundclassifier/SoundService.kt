@@ -18,6 +18,8 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import androidx.preference.PreferenceManager
+import java.util.Timer
+import java.util.TimerTask
 
 private const val TAG = "SOUND_SERVICE"
 private const val CHANNEL_ID = "my_channel_01"
@@ -34,6 +36,9 @@ class SoundService : Service() {
 
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioRecord: AudioRecord
+    private var transmissionTask: TimerTask? = null
+
+    private var bufferSize = 0
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         Log.i(TAG, "Starting onStartCommand: intent=${intent.hasExtra("sound")}")
@@ -88,7 +93,10 @@ class SoundService : Service() {
 
     fun stopRecord() {
         if (isClosed || !isRecording) return
-        if (this::audioRecord.isInitialized) audioRecord.stop()
+        if (this::audioRecord.isInitialized) {
+            audioRecord.stop()
+            transmissionTask?.cancel()
+        }
         isRecording = false
     }
 
@@ -122,7 +130,7 @@ class SoundService : Service() {
 
         Log.i(TAG, "Starting Record")
         val sampleRate = 48000
-        var bufferSize = AudioRecord.getMinBufferSize(
+        bufferSize = AudioRecord.getMinBufferSize(
             sampleRate,
             AudioFormat.CHANNEL_IN_MONO,
             AudioFormat.ENCODING_PCM_16BIT
@@ -148,5 +156,20 @@ class SoundService : Service() {
         }
 
         audioRecord.startRecording()
+        startTransmission()
+    }
+
+    fun startTransmission() {
+        transmissionTask = object : TimerTask() {
+            override fun run() {
+                var audioBuffer = ShortArray(bufferSize)
+                var sampleCounts = audioRecord.read(audioBuffer, 0, audioBuffer.size, AudioRecord.READ_BLOCKING)
+                if (sampleCounts == 0) {
+                    return
+                }
+                Log.d(TAG, audioBuffer.joinToString())
+            }
+        } as TimerTask
+        Timer().schedule(transmissionTask, 800L, 800L)
     }
 }
