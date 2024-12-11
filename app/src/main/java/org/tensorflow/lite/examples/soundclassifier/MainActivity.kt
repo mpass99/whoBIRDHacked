@@ -63,7 +63,7 @@ class MainActivity : AppCompatActivity() {
     paramsIcon.height = (width / 1.8f).toInt()
 
     soundClassifier = SoundClassifier(this, binding, SoundClassifier.Options())
-    webSocketClient = WebSocketClient(this, binding)
+    webSocketClient = WebSocketClient(this)
     binding.gps.setText(getString(R.string.latitude)+": --.-- / " + getString(R.string.longitude) + ": --.--" )
     binding.webview.setWebViewClient(object : MlWebViewClient(this) {})
     binding.webview.settings.setDomStorageEnabled(true)

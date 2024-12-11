@@ -19,7 +19,7 @@ class ContactsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityContactsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        webSocketClient = WebSocketClient(this, ActivityMainBinding.inflate(layoutInflater))
+        webSocketClient = WebSocketClient(this)
 
         checkAndHandlePermissions()
         setupBottomNavigation()
