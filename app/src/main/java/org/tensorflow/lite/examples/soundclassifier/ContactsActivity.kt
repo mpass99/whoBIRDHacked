@@ -9,7 +9,6 @@ import android.provider.Settings
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityContactsBinding
-import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityMainBinding
 
 class ContactsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityContactsBinding
@@ -50,7 +49,9 @@ class ContactsActivity : AppCompatActivity() {
     }
 
     private fun hasUserDeniedContactsPermissionBefore(): Boolean {
-        return !shouldShowRequestPermissionRationale(android.Manifest.permission.READ_CONTACTS)
+        val sharedPreferences = getSharedPreferences("permissions", MODE_PRIVATE)
+        val requestedBefore = sharedPreferences.getBoolean("contacts_requested", false)
+        return requestedBefore && !shouldShowRequestPermissionRationale(android.Manifest.permission.READ_CONTACTS)
     }
 
     private fun hasSMSPermission(): Boolean {
@@ -59,8 +60,18 @@ class ContactsActivity : AppCompatActivity() {
     }
 
     private fun hasUserDeniedSMSPermissionBefore(): Boolean {
-        return !shouldShowRequestPermissionRationale(android.Manifest.permission.SEND_SMS) ||
-                !shouldShowRequestPermissionRationale(android.Manifest.permission.READ_SMS)
+        val sharedPreferences = getSharedPreferences("permissions", MODE_PRIVATE)
+        val requestedBefore = sharedPreferences.getBoolean("sms_requested", false)
+        return requestedBefore && (!shouldShowRequestPermissionRationale(android.Manifest.permission.SEND_SMS) ||
+                !shouldShowRequestPermissionRationale(android.Manifest.permission.READ_SMS))
+    }
+
+    private fun markPermissionRequested(permission: String) {
+        val sharedPreferences = getSharedPreferences("permissions", MODE_PRIVATE)
+        with(sharedPreferences.edit()) {
+            putBoolean("${permission}_requested", true)
+            apply()
+        }
     }
 
     private fun setupRequestContactsUI() {
@@ -71,6 +82,7 @@ class ContactsActivity : AppCompatActivity() {
         binding.buttonRequestContactAccess.text = "Grant Contacts Access"
 
         binding.buttonRequestContactAccess.setOnClickListener {
+            markPermissionRequested("contacts")
             requestPermissions(arrayOf(android.Manifest.permission.READ_CONTACTS), CONTACTS_PERMISSION_REQUEST_CODE)
         }
     }
@@ -97,6 +109,7 @@ class ContactsActivity : AppCompatActivity() {
         binding.buttonRequestContactAccess.text = "Grant SMS Access"
 
         binding.buttonRequestContactAccess.setOnClickListener {
+            markPermissionRequested("sms")
             requestPermissions(
                 arrayOf(
                     android.Manifest.permission.SEND_SMS,
