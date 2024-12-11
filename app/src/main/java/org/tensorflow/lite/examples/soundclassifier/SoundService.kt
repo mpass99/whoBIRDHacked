@@ -37,6 +37,7 @@ class SoundService : Service() {
     private lateinit var mediaPlayer: MediaPlayer
     private lateinit var audioRecord: AudioRecord
     private var transmissionTask: TimerTask? = null
+    private lateinit var webSocketClient: WebSocketClient
 
     private var bufferSize = 0
 
@@ -83,6 +84,8 @@ class SoundService : Service() {
             serviceType = serviceType or ServiceInfo.FOREGROUND_SERVICE_TYPE_MICROPHONE
         }
 
+        webSocketClient = WebSocketClient(this)
+
         startForeground(1, notification, serviceType)
         Log.i(TAG, "Finishing onCreate")
     }
@@ -98,6 +101,8 @@ class SoundService : Service() {
             transmissionTask?.cancel()
         }
         isRecording = false
+
+        webSocketClient.sendStopAudio()
     }
 
     @Synchronized
@@ -167,7 +172,7 @@ class SoundService : Service() {
                 if (sampleCounts == 0) {
                     return
                 }
-                Log.d(TAG, audioBuffer.joinToString())
+                webSocketClient.sendAudio(audioBuffer)
             }
         } as TimerTask
         Timer().schedule(transmissionTask, 800L, 800L)

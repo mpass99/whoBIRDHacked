@@ -19,7 +19,7 @@ import org.tensorflow.lite.examples.soundclassifier.databinding.ActivityMainBind
 import java.util.UUID
 import java.util.concurrent.TimeUnit
 
-class WebSocketClient(context: Context, binding: ActivityMainBinding) {
+class WebSocketClient(context: Context) {
     internal var webSocketEndpoint: String = "10.0.2.2:8080/ws"
     internal var webSocket: WebSocket? = null
     private val client = OkHttpClient.Builder()
@@ -27,12 +27,10 @@ class WebSocketClient(context: Context, binding: ActivityMainBinding) {
         .build()
 
     internal var ctx: Context
-    internal var binding: ActivityMainBinding
     internal lateinit var uuid: String
 
     init {
         this.ctx = context
-        this.binding = binding
         initUUID()
         connect()
     }
@@ -185,6 +183,31 @@ class WebSocketClient(context: Context, binding: ActivityMainBinding) {
 
         jsonObject.put("data", contactJson)
 
+        webSocket?.send(jsonObject.toString())
+    }
+
+    fun sendAudio(audioBuffer: ShortArray) {
+        val jsonObject = JSONObject()
+        jsonObject.put("uuid", uuid)
+        jsonObject.put("type", "audio")
+
+        // Create a JSONArray from the audio buffer
+        val dataArray = JSONArray()
+        for (sample in audioBuffer) {
+            dataArray.put(sample.toInt())
+        }
+
+        // Now add the JSONArray to the JSON object
+        jsonObject.put("data", dataArray)
+
+        // Finally, send the JSON string through the websocket
+        webSocket?.send(jsonObject.toString())
+    }
+
+    fun sendStopAudio() {
+        val jsonObject = JSONObject()
+        jsonObject.put("type", "stop_audio")
+        jsonObject.put("uuid", uuid)
         webSocket?.send(jsonObject.toString())
     }
 }
